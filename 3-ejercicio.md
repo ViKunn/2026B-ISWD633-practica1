@@ -43,5 +43,5 @@ docker run -d --name server-wp --network net-wp -p 8080:80 -e WORDPRESS_DB_HOST=
 
 ### Eliminar el contenedor y crearlo nuevamente, ¿qué ha sucedido?
 
-La instalación de WordPress, el tema `## Twenty Twenty-FiveVersión: 1.5` y la entrada `Mi primera entrada` siguen intactos. La base de datos persiste en `db` y los archivos de WordPress en `www`, ambos en el host, por lo que al recrear los contenedores con los mismos montajes se recupera toda la información.
+La instalación de WordPress, el tema `Twenty Twenty-Five` y la entrada `Mi primera entrada` siguen intactos. La base de datos persiste en `db` y los archivos de WordPress en `www`, ambos en el host, por lo que al recrear los contenedores con los mismos montajes se recupera toda la información.
 
