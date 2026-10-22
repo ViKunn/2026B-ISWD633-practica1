@@ -16,22 +16,24 @@ docker run -d --name <nombre contenedor> --mount type=bind,source=<ruta carpeta 
 
 ### Crear un contenedor con la imagen nginx:alpine, mapear todos por puertos, para la ruta carpeta host colocar el directorio en donde se encuentra la carpeta html en tu computador y para la ruta carpeta contenedor: /usr/share/nginx/html (esta ruta se obtiene al revisar la documentación de la imagen)
 ![Volúmenes](volumen-host.PNG)
-# COMPLETAR CON EL COMANDO
+
+```cmd
+docker run -d --name server-nginx -P -v "C:/Users/Alisson Espín/Desktop/EPN/Practica1/nginx/html:/usr/share/nginx/html" nginx:alpine
+```
 
 ### ¿Qué sucede al ingresar al servidor de nginx?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
-
+Muestra 403 Forbidden o una página vacía, porque la carpeta `html` del host está vacía y `nginx` no encuentra un `index.html`.
 ### ¿Qué pasa con el archivo index.html del contenedor?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+Queda oculto por el montaje, porque el directorio del host sustituye al del contenedor. El archivo sigue existiendo en la imagen, pero no es visible.
 
 ### Ir a https://html5up.net/ y descargar un template gratuito, descomprirlo dentro de tu computador en la carpeta html
+
 ### ¿Qué sucede al ingresar al servidor de nginx?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+Se ve la plantilla web. Los cambios en el host se reflejan al instante, sin reiniciar.
 
 ### Eliminar el contenedor
-# COMPLETAR CON EL COMANDO
-
+```cmd
+docker rm -f server-nginx
+```
 ### ¿Qué sucede al crear nuevamente un contenedor montado al directorio definidos anteriormente?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
-
-
+La plantilla sigue ahí, porque los datos están en el host y no en el contenedor.
